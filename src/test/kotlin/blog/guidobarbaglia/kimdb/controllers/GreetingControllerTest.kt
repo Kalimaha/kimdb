@@ -16,8 +16,15 @@ class GreetingControllerTest {
     @Autowired
     lateinit var restTemplate: TestRestTemplate
 
+    val url: String = "/greetings/Mario"
+
     @Test
     fun `returns 200 OK`() {
-        assertThat(restTemplate.getForEntity("/greetings/Mario", String::class.java).statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(restTemplate.getForEntity(url, String::class.java).statusCode).isEqualTo(HttpStatus.OK)
+    }
+
+    @Test
+    fun `formats the response as JSON object`() {
+        assertThat(restTemplate.getForEntity(url, String::class.java).body).isEqualTo("{\"name\":\"Mario\"}")
     }
 }
