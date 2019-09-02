@@ -1,8 +1,8 @@
 package blog.guidobarbaglia.kimdb.repositories
 
-import blog.guidobarbaglia.kimdb.models.Greeting
+import blog.guidobarbaglia.kimdb.models.Movie
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface GreetingRepository : CrudRepository<Greeting, Long>
+interface MoviesRepository : CrudRepository<Movie, Long>

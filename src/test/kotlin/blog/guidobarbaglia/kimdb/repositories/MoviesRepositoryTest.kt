@@ -1,6 +1,6 @@
 package blog.guidobarbaglia.kimdb.repositories
 
-import blog.guidobarbaglia.kimdb.models.Greeting
+import blog.guidobarbaglia.kimdb.models.Movie
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -12,19 +12,19 @@ import javax.transaction.Transactional
 @SpringBootTest
 @RunWith(SpringRunner::class)
 @Transactional
-class GreetingRepositoryTest {
+class MoviesRepositoryTest {
     @Autowired
-    lateinit var greetingRepository: GreetingRepository
+    lateinit var moviesRepository: MoviesRepository
 
     @Test
-    fun `retrieves all the greetings`() {
-        assertThat(greetingRepository.findAll()).isEmpty()
+    fun `returns an empty array when there are no movies available`() {
+        assertThat(moviesRepository.findAll()).isEmpty()
     }
 
     @Test
-    fun `retrieves all the greetings 2`() {
-        greetingRepository.save(Greeting(null, "spam"))
+    fun `retrieves all the greetings`() {
+        moviesRepository.save(Movie(title = "spam"))
 
-        assertThat(greetingRepository.findAll().toList().size).isEqualTo(1)
+        assertThat(moviesRepository.findAll().toList().size).isEqualTo(1)
     }
 }

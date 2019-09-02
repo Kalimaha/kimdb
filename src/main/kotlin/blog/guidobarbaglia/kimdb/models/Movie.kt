@@ -6,5 +6,11 @@ import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
-@Table(name = "greeting")
-data class Greeting(@Id @GeneratedValue val id: Long?, val name: String)
+@Table(name = "movies")
+data class Movie(
+    @Id
+    @GeneratedValue
+    val id: Int? = null,
+
+    val title: String
+)
