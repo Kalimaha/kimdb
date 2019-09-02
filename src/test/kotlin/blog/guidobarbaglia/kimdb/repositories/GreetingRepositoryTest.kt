@@ -1,6 +1,5 @@
-package blog.guidobarbaglia.kimdb.services
+package blog.guidobarbaglia.kimdb.repositories
 
-import blog.guidobarbaglia.kimdb.models.Greeting
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,12 +9,12 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @SpringBootTest
 @RunWith(SpringRunner::class)
-class GreetingServiceTest {
+class GreetingRepositoryTest {
     @Autowired
-    lateinit var greetingService: GreetingService
+    lateinit var greetingRepository: GreetingRepository
 
     @Test
-    fun `it builds a greeting from a name`() {
-        assertThat(greetingService.buildGreetingFor("Spam")).isEqualTo(Greeting(name = "Spam"))
+    fun `retrieves all the greetings`() {
+        assertThat(greetingRepository.findAll()).isEmpty()
     }
 }

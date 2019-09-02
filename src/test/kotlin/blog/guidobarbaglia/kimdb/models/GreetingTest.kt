@@ -10,7 +10,7 @@ class GreetingTest {
 
     @BeforeEach
     fun init() {
-        greeting = Greeting(name = "Spam")
+        greeting = Greeting(id = "74b335a2-c996-43d6-873d-cd390633db59", name = "Spam")
     }
 
     @Nested

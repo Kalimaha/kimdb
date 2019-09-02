@@ -6,6 +6,7 @@ plugins {
 	war
 	kotlin("jvm") version "1.2.71"
 	kotlin("plugin.spring") version "1.2.71"
+	kotlin("plugin.jpa") version "1.2.71"
 }
 
 group = "blog.guidobarbaglia"
@@ -17,16 +18,20 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-jersey")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.springframework.boot:spring-boot-starter-jersey")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-	
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 	testImplementation("org.assertj", "assertj-core", "3.11.1")
+	testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.2")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	runtimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<KotlinCompile> {
