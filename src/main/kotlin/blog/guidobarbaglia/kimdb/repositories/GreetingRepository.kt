@@ -5,5 +5,4 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface GreetingRepository : CrudRepository<Greeting, Long> {
-}
+interface GreetingRepository : CrudRepository<Greeting, Long>

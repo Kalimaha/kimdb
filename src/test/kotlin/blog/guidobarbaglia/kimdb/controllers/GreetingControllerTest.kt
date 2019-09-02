@@ -1,7 +1,6 @@
 package blog.guidobarbaglia.kimdb.controllers
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,17 +16,15 @@ class GreetingControllerTest {
     @Autowired
     lateinit var restTemplate: TestRestTemplate
 
-    val url: String = "/greetings/Mario"
+    val url: String = "/greetings/"
 
     @Test
-    @Ignore
     fun `returns 200 OK`() {
         assertThat(restTemplate.getForEntity(url, String::class.java).statusCode).isEqualTo(HttpStatus.OK)
     }
 
     @Test
-    @Ignore
     fun `formats the response as JSON object`() {
-        assertThat(restTemplate.getForEntity(url, String::class.java).body).isEqualTo("{\"name\":\"Mario\"}")
+        assertThat(restTemplate.getForEntity(url, String::class.java).body).isEqualTo("[]")
     }
 }
