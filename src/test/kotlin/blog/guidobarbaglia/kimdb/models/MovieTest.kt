@@ -27,7 +27,7 @@ class MovieTest {
 
     @Test
     fun `generates an external id`() {
-        assertNotNull(Movie(title = "Life of Brian").externalId)
+        assertNotNull(movie.externalId)
     }
 
     @Test

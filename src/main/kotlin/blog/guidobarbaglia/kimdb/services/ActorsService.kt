@@ -9,4 +9,6 @@ class ActorsService(val actorsRepository: ActorsRepository) {
     fun actors(): MutableIterable<Actor> = actorsRepository.findAll()
 
     fun saveActor(actor: Actor): Actor = actorsRepository.save(actor)
+
+    fun actorsByMovieId(movieId: Long): MutableIterable<Actor> = actorsRepository.actorsByMovieId(movieId)
 }

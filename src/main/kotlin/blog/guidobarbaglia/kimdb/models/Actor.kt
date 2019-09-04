@@ -16,7 +16,7 @@ data class Actor(
 
     val lastName: String? = null,
 
-    @ManyToMany(mappedBy = "actors")
     @JsonIgnore
+    @ManyToMany(mappedBy = "actors")
     val movies: Set<Movie>? = emptySet()
 )

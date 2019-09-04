@@ -14,8 +14,8 @@ data class Movie(
 
     val externalId: String? = UUID.randomUUID().toString(),
 
-    @ManyToMany(cascade = [CascadeType.ALL])
     @JsonIgnore
+    @ManyToMany(cascade = [CascadeType.ALL])
     @JoinTable(
         name                = "movie_actor",
         joinColumns         = [JoinColumn(name = "movie_id", referencedColumnName = "id")],
