@@ -22,7 +22,7 @@ class MoviesRepositoryTest {
     }
 
     @Test
-    fun `retrieves all the greetings`() {
+    fun `retrieves all the movies`() {
         moviesRepository.save(Movie(title = "spam"))
 
         assertThat(moviesRepository.findAll().toList().size).isEqualTo(1)

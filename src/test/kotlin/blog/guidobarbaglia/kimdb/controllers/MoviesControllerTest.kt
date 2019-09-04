@@ -26,17 +26,17 @@ class MoviesControllerTest {
     @Test
     fun `returns 201 CREATED`() {
         val request = HttpEntity<Movie>(Movie(title = "Spam & Eggs"))
-        val movie = restTemplate.postForEntity(url, request, String::class.java)
+        val movie   = restTemplate.postForEntity(url, request, String::class.java)
 
         assertThat(movie.statusCode).isEqualTo(HttpStatus.CREATED)
     }
 
     @Test
     fun `formats the response as JSON object`() {
-        val mapper = ObjectMapper()
+        val mapper  = ObjectMapper()
         val request = HttpEntity<Movie>(Movie(title = "Spam & Eggs"))
-        val json = restTemplate.postForEntity(url, request, String::class.java).body
-        val movie = mapper.readValue(json, Movie::class.java)
+        val json    = restTemplate.postForEntity(url, request, String::class.java).body
+        val movie   = mapper.readValue(json, Movie::class.java)
 
         assertThat(movie.title).isEqualTo("Spam & Eggs")
     }
