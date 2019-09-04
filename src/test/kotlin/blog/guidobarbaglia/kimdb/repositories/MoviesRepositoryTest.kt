@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import javax.transaction.Transactional
 
+@Transactional
 @SpringBootTest
 @RunWith(SpringRunner::class)
-@Transactional
 class MoviesRepositoryTest {
     @Autowired
     lateinit var moviesRepository: MoviesRepository
@@ -23,7 +23,7 @@ class MoviesRepositoryTest {
 
     @Test
     fun `retrieves all the movies`() {
-        moviesRepository.save(Movie(title = "spam"))
+        moviesRepository.save(Movie(title = "Life of Brian"))
 
         assertThat(moviesRepository.findAll().toList().size).isEqualTo(1)
     }
