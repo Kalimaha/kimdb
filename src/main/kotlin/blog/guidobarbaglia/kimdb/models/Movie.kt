@@ -1,13 +1,10 @@
 package blog.guidobarbaglia.kimdb.models
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
-@Table(name = "movies")
 data class Movie(
     @Id
     @GeneratedValue
@@ -15,5 +12,14 @@ data class Movie(
 
     val title: String,
 
-    val externalId: String? = UUID.randomUUID().toString()
+    val externalId: String? = UUID.randomUUID().toString(),
+
+    @ManyToMany(cascade = [CascadeType.ALL])
+    @JsonIgnore
+    @JoinTable(
+        name                = "movie_actor",
+        joinColumns         = [JoinColumn(name = "movie_id", referencedColumnName = "id")],
+        inverseJoinColumns  = [JoinColumn(name = "actor_id", referencedColumnName = "id")]
+    )
+    val actors: Set<Actor>? = emptySet()
 )
