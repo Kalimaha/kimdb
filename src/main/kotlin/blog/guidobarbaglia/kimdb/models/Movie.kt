@@ -1,6 +1,5 @@
 package blog.guidobarbaglia.kimdb.models
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
 import javax.persistence.*
 
@@ -14,12 +13,11 @@ data class Movie(
 
     val externalId: String? = UUID.randomUUID().toString(),
 
-    @JsonIgnore
-    @ManyToMany(cascade = [CascadeType.ALL])
+    @ManyToMany(cascade = [CascadeType.PERSIST])
     @JoinTable(
         name                = "movie_actor",
-        joinColumns         = [JoinColumn(name = "movie_id", referencedColumnName = "id")],
-        inverseJoinColumns  = [JoinColumn(name = "actor_id", referencedColumnName = "id")]
+        joinColumns         = [JoinColumn(name = "movie_id")],
+        inverseJoinColumns  = [JoinColumn(name = "actor_id")]
     )
-    val actors: Set<Actor>? = emptySet()
+    val actors: List<Actor>? = emptyList()
 )

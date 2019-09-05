@@ -1,6 +1,7 @@
 package blog.guidobarbaglia.kimdb.models
 
 import com.fasterxml.jackson.annotation.*
+import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -11,6 +12,8 @@ data class Actor(
     @Id
     @GeneratedValue
     val id: Int? = null,
+
+    val externalId: String? = UUID.randomUUID().toString(),
 
     val firstName: String? = null,
 

@@ -35,7 +35,7 @@ class ActorsRepositoryTest {
     @Test
     fun `retrieves actors by movie ID`() {
         val actor   = actorsRepository.save(Actor(firstName = "Terry", lastName = "Gilliam"))
-        val movie   = moviesRepository.save(Movie(title = "Life of Brian", actors = setOf(actor)))
+        val movie   = moviesRepository.save(Movie(title = "Life of Brian", actors = listOf(actor)))
 
         assertThat(actorsRepository.actorsByMovieId(movie.id!!.toLong()).toList().size).isEqualTo(1)
     }

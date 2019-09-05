@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ActorsRepository : CrudRepository<Actor, Long> {
-    @Query("SELECT * FROM actor AS a, movie_actor AS ma WHERE ma.movie_id = :movieId", nativeQuery = true)
+    @Query("SELECT * FROM actor AS a, movie_actor AS ma WHERE ma.movie_id = :movieId AND a.id = ma.actor_id", nativeQuery = true)
     fun actorsByMovieId(@Param("movieId") movieId: Long): MutableIterable<Actor>
 }
