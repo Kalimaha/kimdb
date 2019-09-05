@@ -37,6 +37,8 @@ dependencies {
 	testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+	testCompile("org.jetbrains.kotlin", "kotlin-test", "1.2.30")
+
 	runtimeOnly("org.postgresql:postgresql")
 }
 

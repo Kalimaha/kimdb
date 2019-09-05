@@ -6,8 +6,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.test.context.junit4.SpringRunner
 import javax.transaction.Transactional
+import kotlin.test.*
 
 @Transactional
 @SpringBootTest
@@ -26,5 +28,12 @@ class MoviesRepositoryTest {
         moviesRepository.save(Movie(title = "Life of Brian"))
 
         assertThat(moviesRepository.findAll().toList().size).isEqualTo(1)
+    }
+
+    @Test
+    fun `enforces unique movie title`() {
+        moviesRepository.save(Movie(title = "Life of Brian"))
+
+        assertFailsWith<DataIntegrityViolationException> { moviesRepository.save(Movie(title = "Life of Brian")) }
     }
 }
