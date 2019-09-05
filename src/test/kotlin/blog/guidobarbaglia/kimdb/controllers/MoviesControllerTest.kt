@@ -34,10 +34,10 @@ class MoviesControllerTest {
     @Test
     fun `formats the response as JSON object`() {
         val mapper = ObjectMapper()
-        val request = HttpEntity<Movie>(Movie(title = "Spam & Eggs"))
+        val request = HttpEntity<Movie>(Movie(title = "Spam & Eggs 2"))
         val json = restTemplate.postForEntity(url, request, String::class.java).body
         val movie = mapper.readValue(json, Movie::class.java)
 
-        assertThat(movie.title).isEqualTo("Spam & Eggs")
+        assertThat(movie.title).isEqualTo("Spam & Eggs 2")
     }
 }

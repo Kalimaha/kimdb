@@ -7,6 +7,12 @@ plugins {
 	kotlin("jvm") version "1.2.71"
 	kotlin("plugin.spring") version "1.2.71"
 	kotlin("plugin.jpa") version "1.2.71"
+	id("org.flywaydb.flyway") version "6.0.1"
+}
+
+flyway {
+	url = "jdbc:postgresql://localhost:5433/supermario"
+	user = "postgres"
 }
 
 group = "blog.guidobarbaglia"

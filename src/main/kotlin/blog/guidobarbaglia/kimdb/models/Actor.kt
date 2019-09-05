@@ -2,15 +2,12 @@ package blog.guidobarbaglia.kimdb.models
 
 import com.fasterxml.jackson.annotation.*
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.ManyToMany
+import javax.persistence.*
 
 @Entity
 data class Actor(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int? = null,
 
     val externalId: String? = UUID.randomUUID().toString(),

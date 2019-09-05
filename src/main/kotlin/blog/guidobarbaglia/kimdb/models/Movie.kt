@@ -6,9 +6,10 @@ import javax.persistence.*
 @Entity
 data class Movie(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int? = null,
 
+    @Column(unique = true)
     val title: String,
 
     val externalId: String? = UUID.randomUUID().toString(),
