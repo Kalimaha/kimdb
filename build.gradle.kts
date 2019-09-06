@@ -31,6 +31,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-jersey")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+	compile("io.vavr:vavr-kotlin:0.10.0")
+
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
 	testImplementation("org.assertj", "assertj-core", "3.11.1")
